@@ -1,6 +1,6 @@
 package pe.edu.utp.hrserviceapp.models;
 
-import javax.activation.DataSource;
+import javax.sql.DataSource;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.sql.Connection;
@@ -20,12 +20,12 @@ public class HRService {
         }
     }
 
-    public boolean connect(){
-        if(connection == null){
+    public boolean connect() {
+        if(connection == null) {
             try {
                 connection = dataSource.getConnection();
-                return (connection != null);
-            } catch (SQLException e){
+                return(connection != null);
+            } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
@@ -33,15 +33,15 @@ public class HRService {
     }
 
     public Connection getConnection() {
-        if(connection == null){
-            if(!connect()){
+        if(connection== null) {
+            if(!connect()) {
                 return null;
             };
         }
         return connection;
     }
     public RegionsEntity getRegionsEntity() {
-        if(regionsEntity == null){
+        if(regionsEntity == null) {
             regionsEntity = new RegionsEntity();
             regionsEntity.setConnection(getConnection());
         }
@@ -51,5 +51,4 @@ public class HRService {
     public void setRegionsEntity(RegionsEntity regionsEntity) {
         this.regionsEntity = regionsEntity;
     }
-
 }
