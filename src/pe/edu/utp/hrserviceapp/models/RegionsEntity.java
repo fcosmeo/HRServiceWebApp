@@ -6,17 +6,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by GrupoUTP on 03/06/2016.
- */
-public class RegionsEntity {
-    private Connection connection;
+public class RegionsEntity extends BaseEntity{
+
     private static String DEFAULT_QUERY="SELECT * FROM regions";
 
     public List<Region> findAll(){
         String query = DEFAULT_QUERY;
         try {
-            ResultSet rs=connection.createStatement().executeQuery(query);
+            ResultSet rs=getConnection().createStatement().executeQuery(query);
             if(rs==null){
                 return null;
             }
@@ -34,7 +31,7 @@ public class RegionsEntity {
     public Region findById(int id){
         String query = DEFAULT_QUERY+" where region_id="+Integer.toString(id);
         try {
-            ResultSet rs=connection.createStatement().executeQuery(query);
+            ResultSet rs=getConnection().createStatement().executeQuery(query);
             if(rs==null){
                 return null;
             }
@@ -50,7 +47,7 @@ public class RegionsEntity {
     public Region findByName(String name){
         String query = DEFAULT_QUERY+" where region_name="+name;
         try {
-            ResultSet rs=connection.createStatement().executeQuery(query);
+            ResultSet rs=getConnection().createStatement().executeQuery(query);
             if(rs==null){
                 return null;
             }
@@ -62,9 +59,5 @@ public class RegionsEntity {
             e.printStackTrace();
         }
         return null;
-    }
-
-    public void setConnection(Connection connection) {
-        this.connection = connection;
     }
 }
