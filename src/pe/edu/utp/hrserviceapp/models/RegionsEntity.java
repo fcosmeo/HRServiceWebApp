@@ -1,6 +1,5 @@
 package pe.edu.utp.hrserviceapp.models;
 
-import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -29,7 +28,7 @@ public class RegionsEntity extends BaseEntity{
         return null;
     }
     public Region findById(int id){
-        String query = DEFAULT_QUERY+" where region_id="+Integer.toString(id);
+        String query = DEFAULT_QUERY+" where job_id="+Integer.toString(id);
         try {
             ResultSet rs=getConnection().createStatement().executeQuery(query);
             if(rs==null){
@@ -45,7 +44,7 @@ public class RegionsEntity extends BaseEntity{
         return null;
     }
     public Region findByName(String name){
-        String query = DEFAULT_QUERY+" where region_name="+name;
+        String query = DEFAULT_QUERY+" where region_name='"+name+"'";
         try {
             ResultSet rs=getConnection().createStatement().executeQuery(query);
             if(rs==null){

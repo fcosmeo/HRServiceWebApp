@@ -8,6 +8,7 @@ import java.sql.SQLException;
 
 public class HRService {
     private RegionsEntity regionsEntity;
+    private JobsEntity jobsEntity;
     Connection connection;
     DataSource dataSource;
     private static String DATA_SOURCE = "jdbc/MySQLDataSource";
@@ -50,5 +51,17 @@ public class HRService {
 
     public void setRegionsEntity(RegionsEntity regionsEntity) {
         this.regionsEntity = regionsEntity;
+    }
+
+    public JobsEntity getJobsEntity() {
+        if(jobsEntity == null) {
+            jobsEntity = new JobsEntity();
+            jobsEntity.setConnection(getConnection());
+        }
+        return jobsEntity;
+    }
+
+    public void setJobsEntity(JobsEntity jobsEntity) {
+        this.jobsEntity = jobsEntity;
     }
 }

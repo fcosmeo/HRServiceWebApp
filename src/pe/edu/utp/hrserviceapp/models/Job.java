@@ -4,23 +4,23 @@ package pe.edu.utp.hrserviceapp.models;
  * Created by GrupoUTP on 04/06/2016.
  */
 public class Job {
-    private int id;
+    private String id;
     private String title;
     private float minSalary;
     private float maxSalary;
 
-    public Job(int id, String title, float minSalary, float masSalary){
+    public Job(String id, String title, float minSalary, float masSalary){
         this.id=id;
         this.title=title;
         this.minSalary=minSalary;
         this.maxSalary=masSalary;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 

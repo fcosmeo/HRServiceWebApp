@@ -8,9 +8,11 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
   <head>
-    <title>$Title$</title>
+    <title>HR Service</title>
   </head>
   <body>
-  $END$
+    <a href="countRegions">Count Regions</a>
+    <p></p>
+    <a href="listRegions">List Regions</a>
   </body>
 </html>
