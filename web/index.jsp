@@ -14,5 +14,6 @@
     <a href="countRegions">Count Regions</a>
     <p></p>
     <a href="listRegions">List Regions</a>
+  <p><a href="listCountries">List Countries</a></p>
   </body>
 </html>

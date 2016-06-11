@@ -1,5 +1,6 @@
 package pe.edu.utp.hrserviceapp.viewcontrollers;
 
+import pe.edu.utp.hrserviceapp.models.Country;
 import pe.edu.utp.hrserviceapp.models.HRService;
 import pe.edu.utp.hrserviceapp.models.Region;
 
@@ -12,14 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by GrupoUTP on 04/06/2016.
- */
-@WebServlet(name = "ListRegionsServlet",urlPatterns = "/listRegions")
-public class ListRegionsServlet extends HttpServlet {
+
+@WebServlet(name = "ListCountriesServlet",urlPatterns = "/listCountries")
+public class ListCountriesServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request,response);
     }
@@ -27,20 +25,16 @@ public class ListRegionsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request,response);
     }
-
     private void processRequest (HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         try {
             InitialContext ctx = new InitialContext();
             HRService service= new HRService(ctx);
             PrintWriter out =response.getWriter();
 
-            out.println("Region Name");
+            out.println("Country Name");
 
-            List<Region> regions = service.findAllRegions();
-
-            for(Region region: regions){
-                out.println("Region "+region.getName()+
-                                "has "+Integer.toString(region.getCountries().size())+" countries");
+            for(Country country: service.findAllCountries()){
+                out.println(country.getName()+" ("+service.findRegionById(country.getRegionId().getName()));
             }
 
         } catch (NamingException e) {

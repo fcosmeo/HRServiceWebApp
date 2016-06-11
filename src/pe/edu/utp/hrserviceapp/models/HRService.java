@@ -5,10 +5,12 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public class HRService {
     private RegionsEntity regionsEntity;
     private JobsEntity jobsEntity;
+    private CountriesEntity countriesEntity;
     Connection connection;
     DataSource dataSource;
     private static String DATA_SOURCE = "jdbc/MySQLDataSource";
@@ -63,5 +65,33 @@ public class HRService {
 
     public void setJobsEntity(JobsEntity jobsEntity) {
         this.jobsEntity = jobsEntity;
+    }
+
+    public CountriesEntity getCountriesEntity() {
+        if(countriesEntity == null) {
+            countriesEntity = new CountriesEntity();
+            countriesEntity.setConnection(getConnection());
+        }
+        return countriesEntity;
+    }
+
+    public void setCountriesEntity(CountriesEntity countriesEntity) {
+        this.countriesEntity = countriesEntity;
+    }
+
+    public List<Region> findAllRegions() {
+        List<Region> regions = regionsEntity.findAll();
+        if (regions != null)
+            for (Region region : regions) {
+                region.setCountries(getCountriesEntity().findByRegion(region));
+            }
+    }
+
+    public List<Country> findAllCountries(){
+        return getCountriesEntity().findAll();
+    }
+
+    public Region findRegionById(int id){
+        return getRegionsEntity().findById(id);
     }
 }
