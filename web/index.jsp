@@ -14,5 +14,6 @@
     <p><a href="listRegions">List Regions</a></p>
     <p><a href="listCountries">List Countries</a> </p>
     <p><a href="showRegionsCount.jsp">Show Regions Count</a> </p>
+    <p><a href="showCountriesCount.jsp">Show Countries Count</a> </p>
   </body>
 </html>
