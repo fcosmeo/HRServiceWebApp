@@ -9,11 +9,11 @@ public class Job {
     private float minSalary;
     private float maxSalary;
 
-    public Job(String id, String title, float minSalary, float masSalary){
-        this.id=id;
-        this.title=title;
-        this.minSalary=minSalary;
-        this.maxSalary=masSalary;
+    public Job(String id, String title, float minSalary, float maxSalary) {
+        this.id = id;
+        this.title = title;
+        this.minSalary = minSalary;
+        this.maxSalary = maxSalary;
     }
 
     public String getId() {

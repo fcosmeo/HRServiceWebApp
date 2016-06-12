@@ -1,12 +1,15 @@
 package pe.edu.utp.hrserviceapp.models;
 
-import javax.sql.DataSource;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
+/**
+ * Created by GrupoUTP on 03/06/2016.
+ */
 public class HRService {
     private RegionsEntity regionsEntity;
     private JobsEntity jobsEntity;
@@ -15,7 +18,7 @@ public class HRService {
     DataSource dataSource;
     private static String DATA_SOURCE = "jdbc/MySQLDataSource";
 
-    public HRService(InitialContext context){
+    public HRService(InitialContext context) {
         try {
             dataSource = (DataSource) context.lookup(DATA_SOURCE);
         } catch (NamingException e) {
@@ -80,18 +83,20 @@ public class HRService {
     }
 
     public List<Region> findAllRegions() {
-        List<Region> regions = regionsEntity.findAll();
-        if (regions != null)
-            for (Region region : regions) {
-                region.setCountries(getCountriesEntity().findByRegion(region));
+        List<Region> regions = getRegionsEntity().findAll();
+        if(regions != null)
+            for(Region region : regions) {
+                region.setCountries(
+                        getCountriesEntity()
+                                .findByRegion(region));
             }
+        return regions;
     }
 
-    public List<Country> findAllCountries(){
+    public List<Country> findAllCountries() {
         return getCountriesEntity().findAll();
     }
-
-    public Region findRegionById(int id){
+    public Region findRegionById(int id) {
         return getRegionsEntity().findById(id);
     }
 }
