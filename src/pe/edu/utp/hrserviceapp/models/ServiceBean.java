@@ -5,6 +5,7 @@ package pe.edu.utp.hrserviceapp.models;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.io.Serializable;
+import java.util.List;
 
 public class ServiceBean implements Serializable{
     HRService service;
@@ -26,5 +27,9 @@ public class ServiceBean implements Serializable{
     public int getCountriesCount(){
         return service.findAllCountries().size();
     }
+
+    public List<Region> getAllRegions(){ return service.findAllRegions();}
+
+    public List<Country> getAllCountries(){ return service.findAllCountries();}
 
 }

@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 /**
  * Created by GrupoUTP on 04/06/2016.
  */
-@WebServlet(name = "CountRegionsServlet", urlPatterns = "/countRegions")
+@WebServlet(name = "CountRegionsServlet", urlPatterns = "/countRegionsWithServlets")
 public class CountRegionsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)

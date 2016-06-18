@@ -16,7 +16,7 @@ import java.io.PrintWriter;
 /**
  * Created by GrupoUTP on 10/06/2016.
  */
-@WebServlet(name = "ListCountriesServlet", urlPatterns = "/listCountries")
+@WebServlet(name = "ListCountriesServlet", urlPatterns = "/listCountriesWithServlets")
 public class ListCountriesServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         processRequest(request, response);
