@@ -10,6 +10,7 @@ import java.util.List;
 public class ServiceBean implements Serializable{
     HRService service;
     InitialContext context=null;
+    String textCriteria="";
 
     public ServiceBean(){
         try {
@@ -31,5 +32,11 @@ public class ServiceBean implements Serializable{
     public List<Region> getAllRegions(){ return service.findAllRegions();}
 
     public List<Country> getAllCountries(){ return service.findAllCountries();}
+
+    public void setTextCriteria(String text){this.textCriteria=text;}
+
+    public List<Country> getCountriesForTextCriteria(){return service.findCountriesWhereNameContains(this.textCriteria);}
+
+    public Region getRegionForId(int id){return service.findRegionById(id);}
 
 }
