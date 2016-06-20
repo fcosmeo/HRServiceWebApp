@@ -17,7 +17,8 @@ import java.util.List;
 /**
  * Created by GrupoUTP on 04/06/2016.
  */
-@WebServlet(name = "ListRegionsServlet",        urlPatterns = "/listRegionsWithServlets")
+@WebServlet(name = "ListRegionsServlet",
+        urlPatterns = "/listRegionsWithServlets")
 public class ListRegionsServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request,
                           HttpServletResponse response)

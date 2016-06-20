@@ -10,11 +10,13 @@
   <head>
     <title>HR Service</title>
   </head>
+  <body>
     <p><a href="countRegionsWithServlets">Count Regions</a></p>
-    <p><a href="listRegionsWithServlets">List Regions</a></p>
+    <p><a href="listRegionsWithServlets">List Regions (With Servlets)</a></p>
     <p><a href="listCountriesWithServlets">List Countries</a> </p>
     <p><a href="showRegionsCount.jsp">Show Regions Count</a> </p>
     <p><a href="showCountriesCount.jsp">Show Countries Count</a> </p>
     <p><a href="listRegions.jsp">List Regions</a> </p>
+    <p><a href="searchCountries.jsp">Search Countries</a> </p>
   </body>
 </html>

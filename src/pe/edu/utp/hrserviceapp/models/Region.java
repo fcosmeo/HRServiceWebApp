@@ -33,14 +33,13 @@ public class Region {
     public List<Country> getCountries() {
         return countries;
     }
-
-    public String getCountryNames(){
-        String result="";
-        for(Country country : countries){
-            result+=(result == "" ? country.getName() : ", "+country.getName());
-        }
+    public String getCountryNames() {
+        String result ="";
+        for(Country country : countries)
+            result += (result == "" ? country.getName() : ", "+country.getName());
         return result;
     }
+
     public void setCountries(List<Country> countries) {
         this.countries = countries;
     }

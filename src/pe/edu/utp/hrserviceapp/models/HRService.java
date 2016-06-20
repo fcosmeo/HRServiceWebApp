@@ -99,5 +99,5 @@ public class HRService {
     public Region findRegionById(int id) {
         return getRegionsEntity().findById(id);
     }
-    public List<Country> findCountriesWhereNameContains(String text){return getCountriesEntity().findCountriesWhereNameContains(text);}
+    public List<Country> findCountriesWhereNameContains(String text) { return getCountriesEntity().findWhereNameContains(text);}
 }
