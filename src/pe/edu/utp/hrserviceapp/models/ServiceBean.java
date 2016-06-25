@@ -34,6 +34,7 @@ public class ServiceBean implements Serializable {
     public void setTextCriteria(String text) {this.textCriteria = text;}
     public String getTextCriteria() { return textCriteria;}
     public List<Country> getCountriesForTextCriteria() { return service.findCountriesWhereNameContains(this.textCriteria);}
+    public int getEmployeesForCountriesCountForTextCriteria() { return service.findCountEmployeesForCountriesWhereNameContains(this.textCriteria);}
     public Region getRegionForId(int id) { return service.findRegionById(id);}
 
 }

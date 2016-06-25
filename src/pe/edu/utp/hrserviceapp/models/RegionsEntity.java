@@ -59,8 +59,7 @@ public class RegionsEntity extends BaseEntity {
     }
 
     public Region findByName(String name) {
-        String query = DEFAULT_QUERY + " where region_name = " +
-                "'" + name +"'";
+        String query = DEFAULT_QUERY + " where region_name = '" + name +"'";
         try {
             ResultSet rs = getConnection().createStatement()
                     .executeQuery(query);

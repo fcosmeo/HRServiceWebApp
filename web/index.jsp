@@ -18,5 +18,6 @@
     <p><a href="showCountriesCount.jsp">Show Countries Count</a> </p>
     <p><a href="listRegions.jsp">List Regions</a> </p>
     <p><a href="searchCountries.jsp">Search Countries</a> </p>
+    <p><a href="countEmployeesForCountries.jsp">Search Count Employee For Countries</a> </p>
   </body>
 </html>

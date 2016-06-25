@@ -1,5 +1,6 @@
 package pe.edu.utp.hrserviceapp.models;
 
+import java.sql.CallableStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -101,6 +102,29 @@ public class CountriesEntity extends BaseEntity {
             e.printStackTrace();
         }
         return null;
+    }
+
+    public int findCountEmployeesWhereNameContains(String text) {
+        String query = DEFAULT_QUERY + " WHERE country_name LIKE '%"+text+"%'";
+        int counEmployees=0;
+        try {
+            CallableStatement cst = getConnection().prepareCall("{call countEmployeesForCountry (?,?)}");
+            cst.setString(1,text);
+
+            cst.registerOutParameter(2, java.sql.Types.INTEGER);
+            cst.execute();
+
+            counEmployees= cst.getInt(2);
+
+            if(cst == null) {
+                return 0;
+            }
+
+            return counEmployees;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
     }
 
     public List<Country> findByRegion(Region region) {

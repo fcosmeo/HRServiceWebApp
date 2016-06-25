@@ -100,4 +100,8 @@ public class HRService {
         return getRegionsEntity().findById(id);
     }
     public List<Country> findCountriesWhereNameContains(String text) { return getCountriesEntity().findWhereNameContains(text);}
+    public int findCountEmployeesForCountriesWhereNameContains(String text) {
+        return getCountriesEntity().findCountEmployeesWhereNameContains(text);
+    }
+
 }
